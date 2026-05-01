@@ -2,4 +2,4 @@
 name = "PySide Widgets Project"
 
 [tool.pyside6-project]
-files = ["audiotags.py", "common.py", "filemanager.py", "form.ui", "init.sh", "mainwindow.py", "metadatamanager.py", "requirements.txt", "resources.qrc"]
+files = ["audiotags.py", "common.py", "filemanager.py", "filetable.py", "form.ui", "init.sh", "mainwindow.py", "metadatamanager.py", "requirements.txt", "resources.qrc"]

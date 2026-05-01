@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>icons/photo.svg</file>
-        <file>images/photo.png</file>
         <file>icons/deselect.svg</file>
         <file>icons/download.svg</file>
         <file>icons/file-download.svg</file>
@@ -22,5 +21,6 @@
         <file>icons/pencil-bolt.svg</file>
         <file>icons/caret-right.svg</file>
         <file>icons/wand.svg</file>
+        <file>icons/lock.svg</file>
     </qresource>
 </RCC>

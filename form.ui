@@ -366,8 +366,44 @@
            </item>
            <item>
             <widget class="QListWidget" name="files">
+             <property name="editTriggers">
+              <set>QAbstractItemView::EditTrigger::DoubleClicked|QAbstractItemView::EditTrigger::EditKeyPressed</set>
+             </property>
+             <property name="tabKeyNavigation">
+              <bool>true</bool>
+             </property>
+             <property name="dragDropMode">
+              <enum>QAbstractItemView::DragDropMode::InternalMove</enum>
+             </property>
+             <property name="defaultDropAction">
+              <enum>Qt::DropAction::MoveAction</enum>
+             </property>
+             <property name="alternatingRowColors">
+              <bool>true</bool>
+             </property>
              <property name="selectionMode">
               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
+             </property>
+             <property name="horizontalScrollMode">
+              <enum>QAbstractItemView::ScrollMode::ScrollPerPixel</enum>
+             </property>
+             <property name="layoutMode">
+              <enum>QListView::LayoutMode::SinglePass</enum>
+             </property>
+             <property name="viewMode">
+              <enum>QListView::ViewMode::ListMode</enum>
+             </property>
+             <property name="uniformItemSizes">
+              <bool>true</bool>
+             </property>
+             <property name="selectionRectVisible">
+              <bool>true</bool>
+             </property>
+             <property name="itemAlignment">
+              <set>Qt::AlignmentFlag::AlignLeading</set>
+             </property>
+             <property name="supportedDragActions">
+              <set>Qt::DropAction::MoveAction</set>
              </property>
             </widget>
            </item>
@@ -575,7 +611,7 @@
                              </spacer>
                             </item>
                             <item>
-                             <widget class="QLabel" name="cover_back_view">
+                             <widget class="QLabel" name="tag_cover_back">
                               <property name="enabled">
                                <bool>true</bool>
                               </property>
@@ -649,7 +685,7 @@
                              </spacer>
                             </item>
                             <item>
-                             <widget class="QLabel" name="cover_front_view">
+                             <widget class="QLabel" name="tag_cover_front">
                               <property name="enabled">
                                <bool>true</bool>
                               </property>
@@ -822,7 +858,7 @@
                          </widget>
                         </item>
                         <item row="0" column="1">
-                         <widget class="QLineEdit" name="prop_title"/>
+                         <widget class="QLineEdit" name="tag_title"/>
                         </item>
                         <item row="1" column="0">
                          <widget class="QLabel" name="label_2">
@@ -846,7 +882,7 @@
                          </widget>
                         </item>
                         <item row="3" column="1">
-                         <widget class="QLineEdit" name="prop_album_artist"/>
+                         <widget class="QLineEdit" name="tag_album_artist"/>
                         </item>
                         <item row="4" column="0">
                          <widget class="QLabel" name="label_5">
@@ -856,7 +892,7 @@
                          </widget>
                         </item>
                         <item row="4" column="1">
-                         <widget class="QLineEdit" name="prop_genre"/>
+                         <widget class="QLineEdit" name="tag_genre"/>
                         </item>
                         <item row="5" column="0">
                          <widget class="QLabel" name="label_6">
@@ -866,7 +902,7 @@
                          </widget>
                         </item>
                         <item row="5" column="1">
-                         <widget class="QLineEdit" name="prop_year">
+                         <widget class="QLineEdit" name="tag_year">
                           <property name="inputMethodHints">
                            <set>Qt::InputMethodHint::ImhDigitsOnly</set>
                           </property>
@@ -898,7 +934,7 @@
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="prop_track_num">
+                           <widget class="QLineEdit" name="tag_track_num">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                               <horstretch>0</horstretch>
@@ -936,7 +972,7 @@
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="prop_track_total">
+                           <widget class="QLineEdit" name="tag_track_total">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                               <horstretch>0</horstretch>
@@ -991,7 +1027,7 @@
                            </spacer>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="prop_disk_num">
+                           <widget class="QLineEdit" name="tag_disk_num">
                             <property name="sizePolicy">
                              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                               <horstretch>0</horstretch>
@@ -1029,7 +1065,7 @@
                            </widget>
                           </item>
                           <item>
-                           <widget class="QLineEdit" name="prop_disk_total">
+                           <widget class="QLineEdit" name="tag_disk_total">
                             <property name="minimumSize">
                              <size>
                               <width>50</width>
@@ -1052,7 +1088,7 @@
                         <item row="2" column="1">
                          <layout class="QHBoxLayout" name="horizontalLayout_9">
                           <item>
-                           <widget class="QLineEdit" name="prop_album"/>
+                           <widget class="QLineEdit" name="tag_album"/>
                           </item>
                           <item>
                            <widget class="QToolButton" name="detect_album_btn">
@@ -1076,7 +1112,7 @@
                         <item row="1" column="1">
                          <layout class="QHBoxLayout" name="horizontalLayout_2">
                           <item>
-                           <widget class="QLineEdit" name="prop_artist"/>
+                           <widget class="QLineEdit" name="tag_artist"/>
                           </item>
                           <item>
                            <widget class="QToolButton" name="detect_artist_btn">
@@ -1120,7 +1156,7 @@
                          <enum>Qt::LayoutDirection::RightToLeft</enum>
                         </property>
                         <property name="currentIndex">
-                         <number>0</number>
+                         <number>1</number>
                         </property>
                         <widget class="QWidget" name="tab_6">
                          <property name="layoutDirection">
