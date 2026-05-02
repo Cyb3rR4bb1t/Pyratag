@@ -22,5 +22,11 @@
         <file>icons/caret-right.svg</file>
         <file>icons/wand.svg</file>
         <file>icons/lock.svg</file>
+        <file>icons/circle-dot.svg</file>
+        <file>icons/asterisk.svg</file>
+        <file>icons/file-text.svg</file>
+        <file>icons/settings.svg</file>
+        <file>icons/photo-off.svg</file>
+        <file>images/photo-off.png</file>
     </qresource>
 </RCC>

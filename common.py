@@ -1,6 +1,9 @@
 from PySide6.QtCore import QObject, QEvent
 from PySide6.QtWidgets import QWidget, QLineEdit
 from PySide6.QtGui import QPixmap
+from ui_form import Ui_MainWindow
+
+TEST = True
 
 TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Music/Artists/Dream Thing/Satisfactory Soundtrack'
 #TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Projects/qt/stealify/test'
@@ -49,6 +52,11 @@ def clear_tag_edit(line_edit:QLineEdit):
         line_edit.removeAction(action)
     line_edit.setText('')
 
+def setUiTag(ui: Ui_MainWindow, tag: str, value: any):
+    line_edit:QLineEdit = getattr(ui, f"tag_{tag}")
+    if not line_edit:
+        raise f"Invalid tag '{tag}'"
+    line_edit.setText(f"{value}")
 
 def clearMetadataForm(ui):
     cover = defaultCoverPixmap()

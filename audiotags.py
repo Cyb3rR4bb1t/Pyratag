@@ -1,6 +1,7 @@
 from mutagen import File
 from PySide6.QtWidgets import QLineEdit, QLabel
 from PySide6.QtGui import QIcon
+from PySide6.QtCore import Qt
 from ui_form import Ui_MainWindow
 import common
 
@@ -100,9 +101,11 @@ class AudioTags:
             else: # prop_type in {str, int, None}:
                 line_edit:QLineEdit = getattr(ui, f"tag_{key}")
                 common.clear_tag_edit(line_edit)
+                line_edit.setStyleSheet("")
                 if val is AudioTags.UNIQUE_TAG:
                     line_edit.setReadOnly(True)
-                    line_edit.setText('')
+                    line_edit.setStyleSheet("color: blue;")
+                    line_edit.setText("<keep>")
                     line_edit.addAction(QIcon(":/icons/lock.svg"), QLineEdit.LeadingPosition)
                 else:
                     line_edit.setReadOnly(False)
@@ -136,8 +139,13 @@ class AudioTags:
 
 class AudioTagsMap:
 
+    ui: Ui_MainWindow
+
     def __init__(self):
         self.file_tag_map: dict[str, AudioTags] = {}
+
+    def setUI(self, ui: Ui_MainWindow):
+        self.ui = ui
 
     def add(self, filename: str, filepath: str):
         tags = AudioTags()
@@ -146,6 +154,21 @@ class AudioTagsMap:
 
     def get(self, filename: str) -> AudioTags:
         return self.file_tag_map.get(filename)
+
+    def contains(self, filename: str) -> bool:
+        return self.file_tag_map.get(filename) is not None
+
+    def set_tag(self, filename: str, tagname: str, value: any, update_ui: bool = False):
+        items = self.ui.files.findItems(filename, Qt.MatchExactly)
+        if not items:
+            raise "item not found for filename {filename}"
+        tags = self.file_tag_map[filename]
+        if getattr(tags,tagname,None) == value:
+            return
+        items[0].setIcon(QIcon(":/icons/asterisk.svg"))
+        setattr(tags, tagname, value)
+        if update_ui:
+            common.setUiTag(self.ui, tagname, value)
 
     def merge(self, filenames: list[str]):
         if not filenames:
@@ -173,3 +196,5 @@ class AudioTagsMap:
             else:
                 setattr(merged, key, AudioTags.UNIQUE_TAG)
         return merged
+
+AUDIO_TAGS_MAP = AudioTagsMap()
