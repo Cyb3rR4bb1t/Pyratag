@@ -109,7 +109,7 @@ class AudioTags:
                     line_edit.addAction(QIcon(":/icons/lock.svg"), QLineEdit.LeadingPosition)
                 else:
                     line_edit.setReadOnly(False)
-                    line_edit.setText(val if val else '')
+                    line_edit.setText(str(val) if val else '')
 
     def load(self, filepath: str):
         audio = File(filepath)
@@ -144,7 +144,7 @@ class AudioTagsMap:
     def __init__(self):
         self.file_tag_map: dict[str, AudioTags] = {}
 
-    def setUI(self, ui: Ui_MainWindow):
+    def initialize(self, ui: Ui_MainWindow):
         self.ui = ui
 
     def add(self, filename: str, filepath: str):
@@ -158,17 +158,25 @@ class AudioTagsMap:
     def contains(self, filename: str) -> bool:
         return self.file_tag_map.get(filename) is not None
 
-    def set_tag(self, filename: str, tagname: str, value: any, update_ui: bool = False):
+    def update_ui_tag(self, tag, value):
+        line_edit:QLineEdit = getattr(self.ui, f"tag_{tag}")
+        if not line_edit:
+            raise f"Invalid tag '{tag}'"
+        line_edit.setText(f"{value}")
+
+    def set_tag(self, filename: str, tag: str, value: any):
         items = self.ui.files.findItems(filename, Qt.MatchExactly)
         if not items:
             raise "item not found for filename {filename}"
         tags = self.file_tag_map[filename]
-        if getattr(tags,tagname,None) == value:
+        if getattr(tags,tag,None) == value:
             return
+        tag_type = AudioTags.__annotations__[tag]
+        if value and type(value) != tag_type:
+            raise f"value must be of type {tag_type.__name__}"
         items[0].setIcon(QIcon(":/icons/asterisk.svg"))
-        setattr(tags, tagname, value)
-        if update_ui:
-            common.setUiTag(self.ui, tagname, value)
+        setattr(tags, tag, value)
+
 
     def merge(self, filenames: list[str]):
         if not filenames:

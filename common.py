@@ -52,12 +52,6 @@ def clear_tag_edit(line_edit:QLineEdit):
         line_edit.removeAction(action)
     line_edit.setText('')
 
-def setUiTag(ui: Ui_MainWindow, tag: str, value: any):
-    line_edit:QLineEdit = getattr(ui, f"tag_{tag}")
-    if not line_edit:
-        raise f"Invalid tag '{tag}'"
-    line_edit.setText(f"{value}")
-
 def clearMetadataForm(ui):
     cover = defaultCoverPixmap()
     ui.tag_cover_front.setPixmap(cover)

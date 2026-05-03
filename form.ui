@@ -219,32 +219,32 @@
                  </property>
                  <item>
                   <property name="text">
-                   <string>&lt;title&gt;.ext</string>
+                   <string>Title.ext</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>&lt;number&gt; - &lt;title&gt;.ext</string>
+                   <string>Track Title.ext</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>&lt;disk&gt;-&lt;number&gt; - &lt;title&gt;.ext</string>
+                   <string>Disk-Track Title.ext</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>&lt;title&gt; - &lt;artist&gt;.ext</string>
+                   <string>Artist - Title.ext</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>&lt;number&gt; - &lt;title&gt; - &lt;artist&gt;.ext</string>
+                   <string>Track Artist - Title.ext</string>
                   </property>
                  </item>
                  <item>
                   <property name="text">
-                   <string>&lt;disk&gt;-&lt;number&gt; - &lt;title&gt; - &lt;artist&gt;.ext</string>
+                   <string>Disk-Track Artist - Title.ext</string>
                   </property>
                  </item>
                 </widget>
@@ -358,7 +358,7 @@
             <number>9</number>
            </property>
            <property name="bottomMargin">
-            <number>5</number>
+            <number>14</number>
            </property>
            <item>
             <widget class="QCheckBox" name="select_all_check">
@@ -388,7 +388,7 @@
               <enum>Qt::DropAction::MoveAction</enum>
              </property>
              <property name="alternatingRowColors">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="selectionMode">
               <enum>QAbstractItemView::SelectionMode::ExtendedSelection</enum>
@@ -452,7 +452,7 @@
            <enum>QTabWidget::TabPosition::North</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <property name="iconSize">
            <size>
@@ -473,6 +473,9 @@
            </attribute>
            <attribute name="title">
             <string/>
+           </attribute>
+           <attribute name="toolTip">
+            <string>Detection Settings</string>
            </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_24">
             <item>
@@ -509,8 +512,8 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>511</width>
-                 <height>689</height>
+                 <width>567</width>
+                 <height>733</height>
                 </rect>
                </property>
                <property name="sizePolicy">
@@ -556,10 +559,52 @@
                     <height>16777215</height>
                    </size>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_17" stretch="0,0">
+                  <layout class="QVBoxLayout" name="verticalLayout_17" stretch="0,0,0">
                    <property name="spacing">
                     <number>6</number>
                    </property>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_4">
+                     <property name="title">
+                      <string>General</string>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_12">
+                      <item>
+                       <layout class="QFormLayout" name="formLayout_2">
+                        <item row="0" column="0">
+                         <widget class="QLabel" name="label_7">
+                          <property name="text">
+                           <string>Default Directory convention</string>
+                          </property>
+                         </widget>
+                        </item>
+                        <item row="0" column="1">
+                         <widget class="QComboBox" name="dir_convention_combo">
+                          <property name="currentIndex">
+                           <number>1</number>
+                          </property>
+                          <item>
+                           <property name="text">
+                            <string>None</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Album/</string>
+                           </property>
+                          </item>
+                          <item>
+                           <property name="text">
+                            <string>Artist/Album/</string>
+                           </property>
+                          </item>
+                         </widget>
+                        </item>
+                       </layout>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
                    <item>
                     <widget class="QGroupBox" name="groupBox_3">
                      <property name="title">
@@ -685,6 +730,9 @@
            <attribute name="title">
             <string/>
            </attribute>
+           <attribute name="toolTip">
+            <string>Audio file Metadata</string>
+           </attribute>
            <layout class="QVBoxLayout" name="verticalLayout_8">
             <item>
              <widget class="QScrollArea" name="scrollArea">
@@ -719,8 +767,8 @@
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-51</y>
-                 <width>497</width>
+                 <y>-42</y>
+                 <width>553</width>
                  <height>766</height>
                 </rect>
                </property>
@@ -1137,9 +1185,6 @@
                         </item>
                         <item row="5" column="1">
                          <widget class="QLineEdit" name="tag_year">
-                          <property name="inputMethodHints">
-                           <set>Qt::InputMethodHint::ImhDigitsOnly</set>
-                          </property>
                           <property name="maxLength">
                            <number>4</number>
                           </property>
@@ -1187,6 +1232,9 @@
                               <height>16777215</height>
                              </size>
                             </property>
+                            <property name="maxLength">
+                             <number>4</number>
+                            </property>
                             <property name="placeholderText">
                              <string>num</string>
                             </property>
@@ -1230,6 +1278,9 @@
                               <width>0</width>
                               <height>0</height>
                              </size>
+                            </property>
+                            <property name="maxLength">
+                             <number>4</number>
                             </property>
                             <property name="placeholderText">
                              <string>total</string>
@@ -1280,6 +1331,9 @@
                               <height>16777215</height>
                              </size>
                             </property>
+                            <property name="maxLength">
+                             <number>4</number>
+                            </property>
                             <property name="placeholderText">
                              <string>num</string>
                             </property>
@@ -1311,6 +1365,9 @@
                               <width>50</width>
                               <height>16777215</height>
                              </size>
+                            </property>
+                            <property name="maxLength">
+                             <number>4</number>
                             </property>
                             <property name="placeholderText">
                              <string>total</string>
@@ -1453,53 +1510,60 @@
               </widget>
              </widget>
             </item>
+            <item>
+             <widget class="Line" name="line_3">
+              <property name="orientation">
+               <enum>Qt::Orientation::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_10">
+              <property name="sizeConstraint">
+               <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+              </property>
+              <item>
+               <widget class="QPushButton" name="apply_btn">
+                <property name="text">
+                 <string>Apply</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_8">
+                <property name="orientation">
+                 <enum>Qt::Orientation::Horizontal</enum>
+                </property>
+                <property name="sizeType">
+                 <enum>QSizePolicy::Policy::Expanding</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>40</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QPushButton" name="clear_btn">
+                <property name="text">
+                 <string>Clear</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string>Restore</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
            </layout>
           </widget>
          </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_3">
-          <property name="orientation">
-           <enum>Qt::Orientation::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_10">
-          <property name="sizeConstraint">
-           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
-          </property>
-          <item>
-           <spacer name="horizontalSpacer_8">
-            <property name="orientation">
-             <enum>Qt::Orientation::Horizontal</enum>
-            </property>
-            <property name="sizeType">
-             <enum>QSizePolicy::Policy::Expanding</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="clear_btn">
-            <property name="text">
-             <string>Clear</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="apply_btn">
-            <property name="text">
-             <string>Apply</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
         </item>
        </layout>
       </widget>
@@ -1538,8 +1602,6 @@
   <tabstop>detect_title_combo</tabstop>
   <tabstop>detect_artist_combo</tabstop>
   <tabstop>detect_album_combo</tabstop>
-  <tabstop>clear_btn</tabstop>
-  <tabstop>apply_btn</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

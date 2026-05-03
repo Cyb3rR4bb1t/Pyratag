@@ -12,7 +12,7 @@ class MainWindow(QMainWindow):
         super().__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        AUDIO_TAGS_MAP.setUI(self.ui)
+        AUDIO_TAGS_MAP.initialize(self.ui)
         self.ui.files.setIconSize(QSize(10, 10))
         self.metadata_mgr = MetadataManager(self, self.ui)
         self.file_mgr = FileManager(self, self.ui)

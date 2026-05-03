@@ -184,7 +184,7 @@ class Ui_MainWindow(object):
         self.groupBox.setMaximumSize(QSize(16777215, 16777215))
         self.verticalLayout_5 = QVBoxLayout(self.groupBox)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.verticalLayout_5.setContentsMargins(-1, 9, -1, 5)
+        self.verticalLayout_5.setContentsMargins(-1, 9, -1, 14)
         self.select_all_check = QCheckBox(self.groupBox)
         self.select_all_check.setObjectName(u"select_all_check")
         self.select_all_check.setCheckable(True)
@@ -198,7 +198,7 @@ class Ui_MainWindow(object):
         self.files.setTabKeyNavigation(True)
         self.files.setDragDropMode(QAbstractItemView.DragDropMode.InternalMove)
         self.files.setDefaultDropAction(Qt.DropAction.MoveAction)
-        self.files.setAlternatingRowColors(True)
+        self.files.setAlternatingRowColors(False)
         self.files.setSelectionMode(QAbstractItemView.SelectionMode.ExtendedSelection)
         self.files.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
         self.files.setLayoutMode(QListView.LayoutMode.SinglePass)
@@ -256,7 +256,7 @@ class Ui_MainWindow(object):
         self.scrollAreaContent_2 = QWidget()
         self.scrollAreaContent_2.setObjectName(u"scrollAreaContent_2")
         self.scrollAreaContent_2.setEnabled(True)
-        self.scrollAreaContent_2.setGeometry(QRect(0, 0, 511, 689))
+        self.scrollAreaContent_2.setGeometry(QRect(0, 0, 567, 733))
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         sizePolicy5.setHorizontalStretch(0)
         sizePolicy5.setVerticalStretch(0)
@@ -278,6 +278,31 @@ class Ui_MainWindow(object):
         self.verticalLayout_17 = QVBoxLayout(self.metadata_content_2)
         self.verticalLayout_17.setSpacing(6)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.groupBox_4 = QGroupBox(self.metadata_content_2)
+        self.groupBox_4.setObjectName(u"groupBox_4")
+        self.verticalLayout_12 = QVBoxLayout(self.groupBox_4)
+        self.verticalLayout_12.setObjectName(u"verticalLayout_12")
+        self.formLayout_2 = QFormLayout()
+        self.formLayout_2.setObjectName(u"formLayout_2")
+        self.label_7 = QLabel(self.groupBox_4)
+        self.label_7.setObjectName(u"label_7")
+
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label_7)
+
+        self.dir_convention_combo = QComboBox(self.groupBox_4)
+        self.dir_convention_combo.addItem("")
+        self.dir_convention_combo.addItem("")
+        self.dir_convention_combo.addItem("")
+        self.dir_convention_combo.setObjectName(u"dir_convention_combo")
+
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.FieldRole, self.dir_convention_combo)
+
+
+        self.verticalLayout_12.addLayout(self.formLayout_2)
+
+
+        self.verticalLayout_17.addWidget(self.groupBox_4)
+
         self.groupBox_3 = QGroupBox(self.metadata_content_2)
         self.groupBox_3.setObjectName(u"groupBox_3")
         self.verticalLayout_4 = QVBoxLayout(self.groupBox_3)
@@ -369,7 +394,7 @@ class Ui_MainWindow(object):
         self.scrollAreaContent = QWidget()
         self.scrollAreaContent.setObjectName(u"scrollAreaContent")
         self.scrollAreaContent.setEnabled(True)
-        self.scrollAreaContent.setGeometry(QRect(0, -51, 497, 766))
+        self.scrollAreaContent.setGeometry(QRect(0, -42, 553, 766))
         sizePolicy5.setHeightForWidth(self.scrollAreaContent.sizePolicy().hasHeightForWidth())
         self.scrollAreaContent.setSizePolicy(sizePolicy5)
         self.horizontalLayout_8 = QHBoxLayout(self.scrollAreaContent)
@@ -574,7 +599,6 @@ class Ui_MainWindow(object):
 
         self.tag_year = QLineEdit(self.groupBox_7)
         self.tag_year.setObjectName(u"tag_year")
-        self.tag_year.setInputMethodHints(Qt.InputMethodHint.ImhDigitsOnly)
         self.tag_year.setMaxLength(4)
 
         self.formLayout.setWidget(5, QFormLayout.ItemRole.FieldRole, self.tag_year)
@@ -599,6 +623,7 @@ class Ui_MainWindow(object):
         self.tag_track_num.setSizePolicy(sizePolicy7)
         self.tag_track_num.setMinimumSize(QSize(50, 0))
         self.tag_track_num.setMaximumSize(QSize(50, 16777215))
+        self.tag_track_num.setMaxLength(4)
 
         self.horizontalLayout_5.addWidget(self.tag_track_num)
 
@@ -616,6 +641,7 @@ class Ui_MainWindow(object):
         self.tag_track_total.setMinimumSize(QSize(50, 0))
         self.tag_track_total.setMaximumSize(QSize(50, 16777215))
         self.tag_track_total.setBaseSize(QSize(0, 0))
+        self.tag_track_total.setMaxLength(4)
 
         self.horizontalLayout_5.addWidget(self.tag_track_total)
 
@@ -639,6 +665,7 @@ class Ui_MainWindow(object):
         self.tag_disk_num.setSizePolicy(sizePolicy7)
         self.tag_disk_num.setMinimumSize(QSize(50, 0))
         self.tag_disk_num.setMaximumSize(QSize(50, 16777215))
+        self.tag_disk_num.setMaxLength(4)
 
         self.horizontalLayout_7.addWidget(self.tag_disk_num)
 
@@ -653,6 +680,7 @@ class Ui_MainWindow(object):
         self.tag_disk_total.setObjectName(u"tag_disk_total")
         self.tag_disk_total.setMinimumSize(QSize(50, 0))
         self.tag_disk_total.setMaximumSize(QSize(50, 16777215))
+        self.tag_disk_total.setMaxLength(4)
 
         self.horizontalLayout_7.addWidget(self.tag_disk_total)
 
@@ -741,38 +769,43 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.scrollArea)
 
+        self.line_3 = QFrame(self.tab)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.Shape.HLine)
+        self.line_3.setFrameShadow(QFrame.Shadow.Sunken)
+
+        self.verticalLayout_8.addWidget(self.line_3)
+
+        self.horizontalLayout_10 = QHBoxLayout()
+        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.horizontalLayout_10.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
+        self.apply_btn = QPushButton(self.tab)
+        self.apply_btn.setObjectName(u"apply_btn")
+
+        self.horizontalLayout_10.addWidget(self.apply_btn)
+
+        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_10.addItem(self.horizontalSpacer_8)
+
+        self.clear_btn = QPushButton(self.tab)
+        self.clear_btn.setObjectName(u"clear_btn")
+
+        self.horizontalLayout_10.addWidget(self.clear_btn)
+
+        self.pushButton = QPushButton(self.tab)
+        self.pushButton.setObjectName(u"pushButton")
+
+        self.horizontalLayout_10.addWidget(self.pushButton)
+
+
+        self.verticalLayout_8.addLayout(self.horizontalLayout_10)
+
         icon10 = QIcon()
         icon10.addFile(u":/icons/file-text.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.tabWidget_2.addTab(self.tab, icon10, "")
 
         self.right_panel.addWidget(self.tabWidget_2)
-
-        self.line_3 = QFrame(self.verticalLayoutWidget_2)
-        self.line_3.setObjectName(u"line_3")
-        self.line_3.setFrameShape(QFrame.Shape.HLine)
-        self.line_3.setFrameShadow(QFrame.Shadow.Sunken)
-
-        self.right_panel.addWidget(self.line_3)
-
-        self.horizontalLayout_10 = QHBoxLayout()
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.horizontalLayout_10.setSizeConstraint(QLayout.SizeConstraint.SetDefaultConstraint)
-        self.horizontalSpacer_8 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
-
-        self.horizontalLayout_10.addItem(self.horizontalSpacer_8)
-
-        self.clear_btn = QPushButton(self.verticalLayoutWidget_2)
-        self.clear_btn.setObjectName(u"clear_btn")
-
-        self.horizontalLayout_10.addWidget(self.clear_btn)
-
-        self.apply_btn = QPushButton(self.verticalLayoutWidget_2)
-        self.apply_btn.setObjectName(u"apply_btn")
-
-        self.horizontalLayout_10.addWidget(self.apply_btn)
-
-
-        self.right_panel.addLayout(self.horizontalLayout_10)
 
         self.splitter.addWidget(self.verticalLayoutWidget_2)
 
@@ -803,13 +836,12 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.tag_disk_total, self.detect_title_combo)
         QWidget.setTabOrder(self.detect_title_combo, self.detect_artist_combo)
         QWidget.setTabOrder(self.detect_artist_combo, self.detect_album_combo)
-        QWidget.setTabOrder(self.detect_album_combo, self.clear_btn)
-        QWidget.setTabOrder(self.clear_btn, self.apply_btn)
 
         self.retranslateUi(MainWindow)
 
         self.tabWidget_3.setCurrentIndex(1)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
+        self.dir_convention_combo.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(1)
 
 
@@ -823,12 +855,12 @@ class Ui_MainWindow(object):
         self.current_dir_view.setText("")
         self.current_dir_view.setPlaceholderText(QCoreApplication.translate("MainWindow", u"path", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Rename files to:", None))
-        self.rename_combo.setItemText(0, QCoreApplication.translate("MainWindow", u"<title>.ext", None))
-        self.rename_combo.setItemText(1, QCoreApplication.translate("MainWindow", u"<number> - <title>.ext", None))
-        self.rename_combo.setItemText(2, QCoreApplication.translate("MainWindow", u"<disk>-<number> - <title>.ext", None))
-        self.rename_combo.setItemText(3, QCoreApplication.translate("MainWindow", u"<title> - <artist>.ext", None))
-        self.rename_combo.setItemText(4, QCoreApplication.translate("MainWindow", u"<number> - <title> - <artist>.ext", None))
-        self.rename_combo.setItemText(5, QCoreApplication.translate("MainWindow", u"<disk>-<number> - <title> - <artist>.ext", None))
+        self.rename_combo.setItemText(0, QCoreApplication.translate("MainWindow", u"Title.ext", None))
+        self.rename_combo.setItemText(1, QCoreApplication.translate("MainWindow", u"Track Title.ext", None))
+        self.rename_combo.setItemText(2, QCoreApplication.translate("MainWindow", u"Disk-Track Title.ext", None))
+        self.rename_combo.setItemText(3, QCoreApplication.translate("MainWindow", u"Artist - Title.ext", None))
+        self.rename_combo.setItemText(4, QCoreApplication.translate("MainWindow", u"Track Artist - Title.ext", None))
+        self.rename_combo.setItemText(5, QCoreApplication.translate("MainWindow", u"Disk-Track Artist - Title.ext", None))
 
         self.rename_btn.setText(QCoreApplication.translate("MainWindow", u"Rename files", None))
         self.tabWidget_3.setTabText(self.tabWidget_3.indexOf(self.tab_4), "")
@@ -837,12 +869,21 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle("")
         self.select_all_check.setText(QCoreApplication.translate("MainWindow", u"Select all", None))
         self.files_selection_count.setText(QCoreApplication.translate("MainWindow", u"0 of 2 selected", None))
+        self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"General", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"Default Directory convention", None))
+        self.dir_convention_combo.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
+        self.dir_convention_combo.setItemText(1, QCoreApplication.translate("MainWindow", u"Album/", None))
+        self.dir_convention_combo.setItemText(2, QCoreApplication.translate("MainWindow", u"Artist/Album/", None))
+
         self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Detect button behavior", None))
         self.detect_filesystem_group.setTitle(QCoreApplication.translate("MainWindow", u"set tag from filesystem", None))
         self.label_26.setText(QCoreApplication.translate("MainWindow", u"Title (file)", None))
         self.label_25.setText(QCoreApplication.translate("MainWindow", u"Artist (directory)", None))
         self.label_24.setText(QCoreApplication.translate("MainWindow", u"Album (directory)", None))
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_2), "")
+#if QT_CONFIG(tooltip)
+        self.tabWidget_2.setTabToolTip(self.tabWidget_2.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Detection Settings", None))
+#endif // QT_CONFIG(tooltip)
         self.groupBox_2.setTitle(QCoreApplication.translate("MainWindow", u"Cover", None))
         self.tag_cover_back.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.back), QCoreApplication.translate("MainWindow", u"Back", None))
@@ -879,8 +920,12 @@ class Ui_MainWindow(object):
         self.detect_title_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Title", None))
 #endif // QT_CONFIG(tooltip)
         self.detect_title_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
-        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), "")
-        self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.apply_btn.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
+        self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Restore", None))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab), "")
+#if QT_CONFIG(tooltip)
+        self.tabWidget_2.setTabToolTip(self.tabWidget_2.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Audio file Metadata", None))
+#endif // QT_CONFIG(tooltip)
     # retranslateUi
 

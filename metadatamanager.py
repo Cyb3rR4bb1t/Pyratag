@@ -1,4 +1,6 @@
+import functools
 import os
+from PySide6.QtGui import QIntValidator
 from ui_form import Ui_MainWindow
 from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon
@@ -6,21 +8,53 @@ from PySide6.QtWidgets import QMainWindow
 from PySide6.QtWidgets import QMessageBox
 from PySide6.QtWidgets import QComboBox, QListWidget
 import common
-from audiotags import AUDIO_TAGS_MAP
+from audiotags import AUDIO_TAGS_MAP, AudioTags
 
 class MetadataManager:
     def __init__(self, window:QMainWindow, ui:Ui_MainWindow):
         self.ui: Ui_MainWindow = ui
         self.window: QMainWindow = window
         # connections
-        ui = self.ui
-        ui.current_dir_view.textChanged.connect(self.__update_filesystem_tag_detectors)
-        ui.files.itemSelectionChanged.connect(self.__update_title_combo)
+        self.ui.current_dir_view.textChanged.connect(self.__update_filesystem_tag_detectors)
+        self.ui.files.itemSelectionChanged.connect(self.__update_title_combo)
         self.ui.files.itemSelectionChanged.connect(self.__update_metadata_form)
-        ui.detect_title_combo.setEditable(False)
-        ui.detect_title_btn.pressed.connect(self.__detect_title)
-        ui.detect_artist_btn.pressed.connect(self.__detect_artist)
-        ui.detect_album_btn.pressed.connect(self.__detect_album)
+        self.ui.detect_title_combo.setEditable(False)
+        self.ui.detect_title_btn.pressed.connect(self.__detect_title)
+        self.ui.detect_artist_btn.pressed.connect(self.__detect_artist)
+        self.ui.detect_album_btn.pressed.connect(self.__detect_album)
+        self.ui.dir_convention_combo.currentIndexChanged.connect(
+            lambda _: self.__update_filesystem_tag_detectors(self.ui.current_dir_view.text())
+        )
+        editable_tags = [
+            "title",
+            "artist",
+            "album",
+            "album_artist",
+            "genre",
+            "year",
+            "track_num",
+            "track_total",
+            "disk_num",
+            "disk_total"
+        ]
+        tags_annotations = AudioTags.__annotations__
+        for tag in editable_tags:
+            line_edit:QLineEdit = getattr(ui, f"tag_{tag}")
+            if tags_annotations[tag] == int:
+                line_edit.setValidator(QIntValidator())
+            callback=functools.partial(self.__tag_edited_callback, tag)
+            # this callback will only be called when user edits text
+            line_edit.textEdited.connect(callback)
+
+    def __tag_edited_callback(self, tag:str, text:str):
+        selected_items = self.ui.files.selectedItems()
+        tags_annotations = AudioTags.__annotations__
+        for item in selected_items:
+            tag_type = tags_annotations[tag]
+            if tag_type not in [str, int, None]:
+                raise
+            AUDIO_TAGS_MAP.set_tag(item.text(), tag, tag_type(text) if text else None)
+        self.__update_metadata_form()
 
     def update_selected_tags(self, tag_name, value_callback):
         filenames = self.ui.files.selectedItems()
@@ -28,7 +62,7 @@ class MetadataManager:
             filename = filenames[0].text()
             if not AUDIO_TAGS_MAP.contains(filename):
                 raise f"Tags not found for filename {filename}"
-            AUDIO_TAGS_MAP.set_tag(filename, tag_name, value_callback(filename), True)
+            AUDIO_TAGS_MAP.set_tag(filename, tag_name, value_callback(filename))
         if len(filenames) > 1:
             reply = QMessageBox.question(self.window, "Yes", "Are you sure you want to update all entries?",)
             if reply == QMessageBox.StandardButton.Yes:
@@ -36,7 +70,7 @@ class MetadataManager:
                     filename = filenameItem.text()
                     if not AUDIO_TAGS_MAP.contains(filename):
                         raise f"Tags not found for filename {filename}"
-                    AUDIO_TAGS_MAP.set_tag(filename, tag_name, value_callback(filename), False)
+                    AUDIO_TAGS_MAP.set_tag(filename, tag_name, value_callback(filename))
         self.__update_metadata_form()
 
     @Slot()
@@ -96,6 +130,12 @@ class MetadataManager:
     @Slot(str)
     def __update_filesystem_tag_detectors(self, text:str):
         music_dir: str = os.path.expanduser("~/Music/")
+        convention_parts = self.ui.dir_convention_combo.currentText().split("/")
+        artist_index=0
+        album_index=0
+        for i, part in enumerate(reversed(convention_parts)):
+            if part == 'Artist': artist_index=i
+            elif part == 'Album': album_index=i
         dir_parts: list[str] = ['', *os.path.expanduser(text).replace(music_dir, "").split("/")]
         album_combo: QComboBox = self.ui.detect_album_combo
         artist_combo: QComboBox = self.ui.detect_artist_combo
@@ -104,8 +144,8 @@ class MetadataManager:
         if len(dir_parts) < 1:
             return
         album_combo.addItems(dir_parts)
-        album_combo.setCurrentIndex(album_combo.count()-1)
-        if len(dir_parts) < 2:
-            return
+        album_combo_index = album_combo.count()-album_index
+        album_combo.setCurrentIndex(album_combo_index if album_combo_index >=0 else 0)
         artist_combo.addItems(dir_parts)
-        artist_combo.setCurrentIndex(artist_combo.count()-2)
+        artist_combo_index = artist_combo.count()-artist_index
+        artist_combo.setCurrentIndex(artist_combo_index if artist_combo_index >=0 else 0)
