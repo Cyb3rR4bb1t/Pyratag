@@ -1,55 +1,10 @@
-from mutagen import File
 from PySide6.QtWidgets import QLineEdit, QLabel
 from PySide6.QtGui import QIcon
 from PySide6.QtCore import Qt
 from ui_form import Ui_MainWindow
 import common
-
-# settings for mapping tags from and to different audio formats
-DEFAULT_AUDIO_TAGS = {
-    'mp4': {
-        'title':        [{'path': [0], 'tag': '©nam'}],
-        'artist':       [{'path': [0], 'tag': '©ART'}],
-        'album':        [{'path': [0], 'tag': '©alb'}],
-        'album_artist': [{'path': [0], 'tag': 'aART'}],
-        'genre':        [{'path': [0], 'tag': '©gen'}],
-        'year':         [{'path': [0], 'tag': '©day'}],
-        'track_num':    [{'path': [0,0], 'tag': 'trkn'}],
-        'track_total':  [{'path': [0,1], 'tag': 'trkn'}],
-        'disk_num':     [{'path': [0,0], 'tag': 'disk'}],
-        'disk_total':   [{'path': [0,1], 'tag': 'disk'}],
-        'cover_front':  [{'path': [0], 'tag': 'covr'}],
-        'cover_back':   [{'path': [], 'tag': ''}],
-    },
-    'm4a': {
-        'title':        [{'path': [0], 'tag': '©nam'}],
-        'artist':       [{'path': [0], 'tag': '©ART'}],
-        'album':        [{'path': [0], 'tag': '©alb'}],
-        'album_artist': [{'path': [0], 'tag': 'aART'}],
-        'genre':        [{'path': [0], 'tag': '©gen'}],
-        'year':         [{'path': [0], 'tag': '©day'}],
-        'track_num':    [{'path': [0,0], 'tag': 'trkn'}],
-        'track_total':  [{'path': [0,1], 'tag': 'trkn'}],
-        'disk_num':     [{'path': [0,0], 'tag': 'disk'}],
-        'disk_total':   [{'path': [0,1], 'tag': 'disk'}],
-        'cover_front':  [{'path': [0], 'tag': 'covr'}],
-        'cover_back':   [{'path': [], 'tag': ''}],
-    },
-    'mp3': {
-        'title':        [{'path': [0], 'tag': 'TIT2'}],
-        'artist':       [{'path': [0], 'tag': 'TPE1'}],
-        'album':        [{'path': [0], 'tag': 'TALB'}],
-        'album_artist': [{'path': [0], 'tag': 'TPE2'}],
-        'genre':        [{'path': [0], 'tag': 'TCON'}],
-        'year':         [{'path': [0], 'tag': 'TDRC'}],
-        'track_num':    [{'path': [], 'tag': 'TRCK'}],
-        'track_total':  [{'path': [], 'tag': 'TRCK'}],
-        'disk_num':     [{'path': [], 'tag': 'TPOS'}],
-        'disk_total':   [{'path': [], 'tag': 'TPOS'}],
-        'cover_front':  [{'path': [0], 'tag': 'APIC:'}],
-        'cover_back':   [{'path': [], 'tag': ''}],
-    }
-}
+from audio.tag import Tag
+from audio.tags import Tags
 
 class AudioTags:
 
@@ -112,30 +67,14 @@ class AudioTags:
                     line_edit.setText(str(val) if val else '')
 
     def load(self, filepath: str):
-        audio = File(filepath)
-        if audio is None:
-            raise ValueError(f"Unsupported file: {filepath}")
-        extension = filepath.rsplit('.', 1)[-1].lower()
-        audio_format = DEFAULT_AUDIO_TAGS.get(extension)
-        if audio_format is None:
-            raise ValueError(f"Unsupported format: {extension}")
-        def set_prop_from_entry(propname:str, entry:dict):
-            tag = entry['tag']
-            path = entry['path']
-            if not tag or tag not in audio:
-                return
-            value = audio[tag]
-            if len(path)==0:
-                return
-            for path_part in path:
-                if value is None:
-                    return
-                value = value[path_part]
-            setattr(self, key, value)
-        for key, entries in audio_format.items():
-            for entry in entries:
-                set_prop_from_entry(key, entry)
-                break
+        tags = Tags(filepath)
+        tag:Tag = tags.data[0]
+        annotations = AudioTags.__annotations__
+        for tag in tags.data:
+            if tag.key in annotations:
+                setattr(self, tag.key, tag.value)
+            else:
+                continue
 
 class AudioTagsMap:
 

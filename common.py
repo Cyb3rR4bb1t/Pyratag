@@ -5,7 +5,8 @@ from ui_form import Ui_MainWindow
 
 TEST = True
 
-TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Music/Artists/Dream Thing/Satisfactory Soundtrack'
+TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Music/Artists/Depeche Mode/Black Celebration'
+#'/home/cyb3rr4bb1t/Music/Artists/Dream Thing/Satisfactory Soundtrack'
 #TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Projects/qt/stealify/test'
 AUDIO_EXT = ('.mp3', '.flac', '.wav', '.ogg', '.m4a')
 

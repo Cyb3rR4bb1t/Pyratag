@@ -309,7 +309,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.detect_filesystem_group = QGroupBox(self.groupBox_3)
         self.detect_filesystem_group.setObjectName(u"detect_filesystem_group")
-        self.detect_filesystem_group.setCheckable(True)
+        self.detect_filesystem_group.setCheckable(False)
         self.verticalLayout_10 = QVBoxLayout(self.detect_filesystem_group)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.formLayout_7 = QFormLayout()
@@ -394,7 +394,7 @@ class Ui_MainWindow(object):
         self.scrollAreaContent = QWidget()
         self.scrollAreaContent.setObjectName(u"scrollAreaContent")
         self.scrollAreaContent.setEnabled(True)
-        self.scrollAreaContent.setGeometry(QRect(0, -42, 553, 766))
+        self.scrollAreaContent.setGeometry(QRect(0, -142, 553, 831))
         sizePolicy5.setHeightForWidth(self.scrollAreaContent.sizePolicy().hasHeightForWidth())
         self.scrollAreaContent.setSizePolicy(sizePolicy5)
         self.horizontalLayout_8 = QHBoxLayout(self.scrollAreaContent)
@@ -559,6 +559,7 @@ class Ui_MainWindow(object):
         sizePolicy6.setHeightForWidth(self.groupBox_7.sizePolicy().hasHeightForWidth())
         self.groupBox_7.setSizePolicy(sizePolicy6)
         self.verticalLayout = QVBoxLayout(self.groupBox_7)
+        self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.formLayout = QFormLayout()
         self.formLayout.setObjectName(u"formLayout")
@@ -587,21 +588,10 @@ class Ui_MainWindow(object):
 
         self.formLayout.setWidget(4, QFormLayout.ItemRole.LabelRole, self.label_5)
 
-        self.tag_genre = QLineEdit(self.groupBox_7)
-        self.tag_genre.setObjectName(u"tag_genre")
-
-        self.formLayout.setWidget(4, QFormLayout.ItemRole.FieldRole, self.tag_genre)
-
         self.label_6 = QLabel(self.groupBox_7)
         self.label_6.setObjectName(u"label_6")
 
         self.formLayout.setWidget(5, QFormLayout.ItemRole.LabelRole, self.label_6)
-
-        self.tag_year = QLineEdit(self.groupBox_7)
-        self.tag_year.setObjectName(u"tag_year")
-        self.tag_year.setMaxLength(4)
-
-        self.formLayout.setWidget(5, QFormLayout.ItemRole.FieldRole, self.tag_year)
 
         self.label_13 = QLabel(self.groupBox_7)
         self.label_13.setObjectName(u"label_13")
@@ -609,6 +599,7 @@ class Ui_MainWindow(object):
         self.formLayout.setWidget(6, QFormLayout.ItemRole.LabelRole, self.label_13)
 
         self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setSpacing(12)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.horizontalSpacer_10 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -621,9 +612,9 @@ class Ui_MainWindow(object):
         sizePolicy7.setVerticalStretch(0)
         sizePolicy7.setHeightForWidth(self.tag_track_num.sizePolicy().hasHeightForWidth())
         self.tag_track_num.setSizePolicy(sizePolicy7)
-        self.tag_track_num.setMinimumSize(QSize(50, 0))
-        self.tag_track_num.setMaximumSize(QSize(50, 16777215))
-        self.tag_track_num.setMaxLength(4)
+        self.tag_track_num.setMinimumSize(QSize(100, 0))
+        self.tag_track_num.setMaximumSize(QSize(100, 16777215))
+        self.tag_track_num.setMaxLength(6)
 
         self.horizontalLayout_5.addWidget(self.tag_track_num)
 
@@ -638,12 +629,22 @@ class Ui_MainWindow(object):
         self.tag_track_total.setObjectName(u"tag_track_total")
         sizePolicy7.setHeightForWidth(self.tag_track_total.sizePolicy().hasHeightForWidth())
         self.tag_track_total.setSizePolicy(sizePolicy7)
-        self.tag_track_total.setMinimumSize(QSize(50, 0))
-        self.tag_track_total.setMaximumSize(QSize(50, 16777215))
+        self.tag_track_total.setMinimumSize(QSize(100, 0))
+        self.tag_track_total.setMaximumSize(QSize(100, 16777215))
         self.tag_track_total.setBaseSize(QSize(0, 0))
-        self.tag_track_total.setMaxLength(4)
+        self.tag_track_total.setMaxLength(6)
 
         self.horizontalLayout_5.addWidget(self.tag_track_total)
+
+        self.detect_track_btn = QToolButton(self.groupBox_7)
+        self.detect_track_btn.setObjectName(u"detect_track_btn")
+        self.detect_track_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/wand.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        self.detect_track_btn.setIcon(icon9)
+        self.detect_track_btn.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_5.addWidget(self.detect_track_btn)
 
 
         self.formLayout.setLayout(6, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_5)
@@ -654,6 +655,7 @@ class Ui_MainWindow(object):
         self.formLayout.setWidget(7, QFormLayout.ItemRole.LabelRole, self.label_15)
 
         self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setSpacing(12)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalSpacer_11 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
 
@@ -663,9 +665,9 @@ class Ui_MainWindow(object):
         self.tag_disk_num.setObjectName(u"tag_disk_num")
         sizePolicy7.setHeightForWidth(self.tag_disk_num.sizePolicy().hasHeightForWidth())
         self.tag_disk_num.setSizePolicy(sizePolicy7)
-        self.tag_disk_num.setMinimumSize(QSize(50, 0))
-        self.tag_disk_num.setMaximumSize(QSize(50, 16777215))
-        self.tag_disk_num.setMaxLength(4)
+        self.tag_disk_num.setMinimumSize(QSize(100, 0))
+        self.tag_disk_num.setMaximumSize(QSize(100, 16777215))
+        self.tag_disk_num.setMaxLength(6)
 
         self.horizontalLayout_7.addWidget(self.tag_disk_num)
 
@@ -678,16 +680,25 @@ class Ui_MainWindow(object):
 
         self.tag_disk_total = QLineEdit(self.groupBox_7)
         self.tag_disk_total.setObjectName(u"tag_disk_total")
-        self.tag_disk_total.setMinimumSize(QSize(50, 0))
-        self.tag_disk_total.setMaximumSize(QSize(50, 16777215))
-        self.tag_disk_total.setMaxLength(4)
+        self.tag_disk_total.setMinimumSize(QSize(100, 0))
+        self.tag_disk_total.setMaximumSize(QSize(100, 16777215))
+        self.tag_disk_total.setMaxLength(6)
 
         self.horizontalLayout_7.addWidget(self.tag_disk_total)
+
+        self.detect_disk_btn = QToolButton(self.groupBox_7)
+        self.detect_disk_btn.setObjectName(u"detect_disk_btn")
+        self.detect_disk_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.detect_disk_btn.setIcon(icon9)
+        self.detect_disk_btn.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_7.addWidget(self.detect_disk_btn)
 
 
         self.formLayout.setLayout(7, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_7)
 
         self.horizontalLayout_9 = QHBoxLayout()
+        self.horizontalLayout_9.setSpacing(12)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
         self.tag_album = QLineEdit(self.groupBox_7)
         self.tag_album.setObjectName(u"tag_album")
@@ -697,8 +708,6 @@ class Ui_MainWindow(object):
         self.detect_album_btn = QToolButton(self.groupBox_7)
         self.detect_album_btn.setObjectName(u"detect_album_btn")
         self.detect_album_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
-        icon9 = QIcon()
-        icon9.addFile(u":/icons/wand.svg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.detect_album_btn.setIcon(icon9)
         self.detect_album_btn.setIconSize(QSize(24, 24))
 
@@ -708,6 +717,7 @@ class Ui_MainWindow(object):
         self.formLayout.setLayout(2, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_9)
 
         self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setSpacing(12)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.tag_artist = QLineEdit(self.groupBox_7)
         self.tag_artist.setObjectName(u"tag_artist")
@@ -725,12 +735,8 @@ class Ui_MainWindow(object):
 
         self.formLayout.setLayout(1, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_2)
 
-        self.tag_album_artist = QLineEdit(self.groupBox_7)
-        self.tag_album_artist.setObjectName(u"tag_album_artist")
-
-        self.formLayout.setWidget(3, QFormLayout.ItemRole.FieldRole, self.tag_album_artist)
-
         self.horizontalLayout_13 = QHBoxLayout()
+        self.horizontalLayout_13.setSpacing(12)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.tag_title = QLineEdit(self.groupBox_7)
         self.tag_title.setObjectName(u"tag_title")
@@ -748,8 +754,84 @@ class Ui_MainWindow(object):
 
         self.formLayout.setLayout(0, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_13)
 
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setSpacing(12)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.tag_album_artist = QLineEdit(self.groupBox_7)
+        self.tag_album_artist.setObjectName(u"tag_album_artist")
+
+        self.horizontalLayout_4.addWidget(self.tag_album_artist)
+
+        self.detect_album_artist_btn = QToolButton(self.groupBox_7)
+        self.detect_album_artist_btn.setObjectName(u"detect_album_artist_btn")
+        self.detect_album_artist_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.detect_album_artist_btn.setIcon(icon9)
+        self.detect_album_artist_btn.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_4.addWidget(self.detect_album_artist_btn)
+
+
+        self.formLayout.setLayout(3, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_4)
+
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setSpacing(12)
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.tag_genre = QLineEdit(self.groupBox_7)
+        self.tag_genre.setObjectName(u"tag_genre")
+
+        self.horizontalLayout_14.addWidget(self.tag_genre)
+
+        self.detect_genre_btn = QToolButton(self.groupBox_7)
+        self.detect_genre_btn.setObjectName(u"detect_genre_btn")
+        self.detect_genre_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.detect_genre_btn.setIcon(icon9)
+        self.detect_genre_btn.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_14.addWidget(self.detect_genre_btn)
+
+
+        self.formLayout.setLayout(4, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_14)
+
+        self.horizontalLayout_15 = QHBoxLayout()
+        self.horizontalLayout_15.setSpacing(12)
+        self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.tag_year = QLineEdit(self.groupBox_7)
+        self.tag_year.setObjectName(u"tag_year")
+        self.tag_year.setMaxLength(6)
+
+        self.horizontalLayout_15.addWidget(self.tag_year)
+
+        self.detect_year_btn = QToolButton(self.groupBox_7)
+        self.detect_year_btn.setObjectName(u"detect_year_btn")
+        self.detect_year_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.detect_year_btn.setIcon(icon9)
+        self.detect_year_btn.setIconSize(QSize(24, 24))
+
+        self.horizontalLayout_15.addWidget(self.detect_year_btn)
+
+
+        self.formLayout.setLayout(5, QFormLayout.ItemRole.FieldRole, self.horizontalLayout_15)
+
 
         self.verticalLayout.addLayout(self.formLayout)
+
+        self.horizontalLayout_16 = QHBoxLayout()
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Minimum)
+
+        self.horizontalLayout_16.addItem(self.horizontalSpacer_5)
+
+        self.detect_all_btn = QToolButton(self.groupBox_7)
+        self.detect_all_btn.setObjectName(u"detect_all_btn")
+        self.detect_all_btn.setFocusPolicy(Qt.FocusPolicy.NoFocus)
+        self.detect_all_btn.setIcon(icon9)
+        self.detect_all_btn.setIconSize(QSize(24, 24))
+        self.detect_all_btn.setToolButtonStyle(Qt.ToolButtonStyle.ToolButtonTextBesideIcon)
+
+        self.horizontalLayout_16.addWidget(self.detect_all_btn)
+
+
+        self.verticalLayout.addLayout(self.horizontalLayout_16)
 
 
         self.verticalLayout_9.addWidget(self.groupBox_7)
@@ -826,10 +908,7 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.tabWidget_2, self.tag_title)
         QWidget.setTabOrder(self.tag_title, self.tag_artist)
         QWidget.setTabOrder(self.tag_artist, self.tag_album)
-        QWidget.setTabOrder(self.tag_album, self.tag_album_artist)
-        QWidget.setTabOrder(self.tag_album_artist, self.tag_genre)
-        QWidget.setTabOrder(self.tag_genre, self.tag_year)
-        QWidget.setTabOrder(self.tag_year, self.tag_track_num)
+        QWidget.setTabOrder(self.tag_album, self.tag_track_num)
         QWidget.setTabOrder(self.tag_track_num, self.tag_track_total)
         QWidget.setTabOrder(self.tag_track_total, self.tag_disk_num)
         QWidget.setTabOrder(self.tag_disk_num, self.tag_disk_total)
@@ -840,7 +919,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.tabWidget_3.setCurrentIndex(1)
-        self.tabWidget_2.setCurrentIndex(0)
+        self.tabWidget_2.setCurrentIndex(1)
         self.dir_convention_combo.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(1)
 
@@ -904,10 +983,18 @@ class Ui_MainWindow(object):
         self.tag_track_num.setPlaceholderText(QCoreApplication.translate("MainWindow", u"num", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"/", None))
         self.tag_track_total.setPlaceholderText(QCoreApplication.translate("MainWindow", u"total", None))
+#if QT_CONFIG(tooltip)
+        self.detect_track_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Track", None))
+#endif // QT_CONFIG(tooltip)
+        self.detect_track_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"Disk", None))
         self.tag_disk_num.setPlaceholderText(QCoreApplication.translate("MainWindow", u"num", None))
         self.label_16.setText(QCoreApplication.translate("MainWindow", u"/", None))
         self.tag_disk_total.setPlaceholderText(QCoreApplication.translate("MainWindow", u"total", None))
+#if QT_CONFIG(tooltip)
+        self.detect_disk_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Disk", None))
+#endif // QT_CONFIG(tooltip)
+        self.detect_disk_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
 #if QT_CONFIG(tooltip)
         self.detect_album_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Album", None))
 #endif // QT_CONFIG(tooltip)
@@ -920,6 +1007,22 @@ class Ui_MainWindow(object):
         self.detect_title_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Title", None))
 #endif // QT_CONFIG(tooltip)
         self.detect_title_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
+#if QT_CONFIG(tooltip)
+        self.detect_album_artist_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Album Artist", None))
+#endif // QT_CONFIG(tooltip)
+        self.detect_album_artist_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
+#if QT_CONFIG(tooltip)
+        self.detect_genre_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Genre", None))
+#endif // QT_CONFIG(tooltip)
+        self.detect_genre_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
+#if QT_CONFIG(tooltip)
+        self.detect_year_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Year", None))
+#endif // QT_CONFIG(tooltip)
+        self.detect_year_btn.setText(QCoreApplication.translate("MainWindow", u"...", None))
+#if QT_CONFIG(tooltip)
+        self.detect_all_btn.setToolTip(QCoreApplication.translate("MainWindow", u"Detect Album", None))
+#endif // QT_CONFIG(tooltip)
+        self.detect_all_btn.setText(QCoreApplication.translate("MainWindow", u"Detect all", None))
         self.apply_btn.setText(QCoreApplication.translate("MainWindow", u"Apply", None))
         self.clear_btn.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Restore", None))
