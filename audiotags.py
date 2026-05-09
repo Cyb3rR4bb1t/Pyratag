@@ -56,14 +56,12 @@ class AudioTags:
             else: # prop_type in {str, int, None}:
                 line_edit:QLineEdit = getattr(ui, f"tag_{key}")
                 common.clear_tag_edit(line_edit)
-                line_edit.setStyleSheet("")
                 if val is AudioTags.UNIQUE_TAG:
                     line_edit.setReadOnly(True)
                     line_edit.setStyleSheet("color: blue;")
                     line_edit.setText("<keep>")
                     line_edit.addAction(QIcon(":/icons/lock.svg"), QLineEdit.LeadingPosition)
                 else:
-                    line_edit.setReadOnly(False)
                     line_edit.setText(str(val) if val else '')
 
     def load(self, filepath: str):
@@ -115,7 +113,6 @@ class AudioTagsMap:
             raise f"value must be of type {tag_type.__name__}"
         items[0].setIcon(QIcon(":/icons/asterisk.svg"))
         setattr(tags, tag, value)
-
 
     def merge(self, filenames: list[str]):
         if not filenames:

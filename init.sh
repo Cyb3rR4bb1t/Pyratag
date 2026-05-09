@@ -1,1 +1,1 @@
-source .qtcreator/Python_3_14_0venv/bin/activate
+source .qtcreator/Python_3_14_0venv_2/bin/activate

@@ -452,7 +452,7 @@
            <enum>QTabWidget::TabPosition::North</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <property name="iconSize">
            <size>
@@ -512,7 +512,7 @@
                 <rect>
                  <x>0</x>
                  <y>0</y>
-                 <width>567</width>
+                 <width>599</width>
                  <height>733</height>
                 </rect>
                </property>
@@ -559,10 +559,41 @@
                     <height>16777215</height>
                    </size>
                   </property>
-                  <layout class="QVBoxLayout" name="verticalLayout_17" stretch="0,0,0">
+                  <layout class="QVBoxLayout" name="verticalLayout_17" stretch="0,0,0,0">
                    <property name="spacing">
                     <number>6</number>
                    </property>
+                   <item>
+                    <widget class="QGroupBox" name="groupBox_9">
+                     <property name="title">
+                      <string>Introduction</string>
+                     </property>
+                     <layout class="QVBoxLayout" name="verticalLayout_19">
+                      <item>
+                       <widget class="QTextBrowser" name="textBrowser">
+                        <property name="html">
+                         <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Adwaita Sans'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;One thing that distinguishes Pyratag from other music taggers is the ability to detect most of the basic music tags offline using &amp;quot;clever tricks&amp;quot;. Pyratags' design is focused on simplicity and editing multiple songs at once to save time.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In order to have benefits from automation and offline detection features, it is encouraged to store audio files in a structured form accross your music library.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;For example if you group music files in albums and then group albums by artists, like &lt;span style=&quot; font-style:italic;&quot;&gt;&amp;quot;Artist/Album/Song&amp;quot;&lt;/span&gt;, you can configure detection of artist and album. Several conventions are supported.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Feel free to change settings&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </widget>
+                   </item>
                    <item>
                     <widget class="QGroupBox" name="groupBox_4">
                      <property name="title">
@@ -608,28 +639,41 @@
                    <item>
                     <widget class="QGroupBox" name="groupBox_3">
                      <property name="title">
-                      <string>Detect button behavior</string>
+                      <string>Detection</string>
                      </property>
-                     <layout class="QVBoxLayout" name="verticalLayout_4">
+                     <layout class="QVBoxLayout" name="verticalLayout_18">
                       <item>
-                       <widget class="QGroupBox" name="detect_filesystem_group">
+                       <widget class="QGroupBox" name="groupBox_5">
                         <property name="title">
-                         <string>set tag from filesystem</string>
+                         <string>Title</string>
                         </property>
-                        <property name="checkable">
-                         <bool>false</bool>
-                        </property>
-                        <layout class="QVBoxLayout" name="verticalLayout_10">
+                        <layout class="QVBoxLayout" name="verticalLayout_4">
                          <item>
-                          <layout class="QFormLayout" name="formLayout_7">
+                          <layout class="QFormLayout" name="formLayout_3">
                            <item row="0" column="0">
-                            <widget class="QLabel" name="label_26">
+                            <widget class="QLabel" name="label_9">
                              <property name="text">
-                              <string>Title (file)</string>
+                              <string>Source</string>
                              </property>
                             </widget>
                            </item>
                            <item row="0" column="1">
+                            <widget class="QComboBox" name="comboBox">
+                             <item>
+                              <property name="text">
+                               <string>File name</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                           <item row="1" column="0">
+                            <widget class="QLabel" name="label_26">
+                             <property name="text">
+                              <string>Value Preview</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
                             <widget class="QComboBox" name="detect_title_combo">
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -639,10 +683,23 @@
                              </property>
                             </widget>
                            </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QGroupBox" name="groupBox_6">
+                        <property name="title">
+                         <string>Artist</string>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_15">
+                         <item>
+                          <layout class="QFormLayout" name="formLayout_4">
                            <item row="1" column="0">
                             <widget class="QLabel" name="label_25">
                              <property name="text">
-                              <string>Artist (directory)</string>
+                              <string>Value Preview</string>
                              </property>
                             </widget>
                            </item>
@@ -656,14 +713,43 @@
                              </property>
                             </widget>
                            </item>
-                           <item row="2" column="0">
-                            <widget class="QLabel" name="label_24">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="label_10">
                              <property name="text">
-                              <string>Album (directory)</string>
+                              <string>Source</string>
                              </property>
                             </widget>
                            </item>
-                           <item row="2" column="1">
+                           <item row="0" column="1">
+                            <widget class="QComboBox" name="comboBox_2">
+                             <item>
+                              <property name="text">
+                               <string>Directory name</string>
+                              </property>
+                             </item>
+                            </widget>
+                           </item>
+                          </layout>
+                         </item>
+                        </layout>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QGroupBox" name="groupBox_8">
+                        <property name="title">
+                         <string>Album</string>
+                        </property>
+                        <layout class="QVBoxLayout" name="verticalLayout_10">
+                         <item>
+                          <layout class="QFormLayout" name="formLayout_5">
+                           <item row="1" column="0">
+                            <widget class="QLabel" name="label_24">
+                             <property name="text">
+                              <string>Value Preview</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="1" column="1">
                             <widget class="QComboBox" name="detect_album_combo">
                              <property name="sizePolicy">
                               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -671,6 +757,22 @@
                                <verstretch>0</verstretch>
                               </sizepolicy>
                              </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="label_11">
+                             <property name="text">
+                              <string>Source</string>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QComboBox" name="comboBox_3">
+                             <item>
+                              <property name="text">
+                               <string>Directory name</string>
+                              </property>
+                             </item>
                             </widget>
                            </item>
                           </layout>
@@ -767,8 +869,8 @@
                <property name="geometry">
                 <rect>
                  <x>0</x>
-                 <y>-142</y>
-                 <width>553</width>
+                 <y>0</y>
+                 <width>585</width>
                  <height>831</height>
                 </rect>
                </property>
@@ -1793,9 +1895,6 @@
   <tabstop>tag_track_total</tabstop>
   <tabstop>tag_disk_num</tabstop>
   <tabstop>tag_disk_total</tabstop>
-  <tabstop>detect_title_combo</tabstop>
-  <tabstop>detect_artist_combo</tabstop>
-  <tabstop>detect_album_combo</tabstop>
  </tabstops>
  <resources>
   <include location="resources.qrc"/>

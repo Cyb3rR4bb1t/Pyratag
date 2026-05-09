@@ -17,7 +17,7 @@ class FileManager(QObject):
         self.ui.files.itemSelectionChanged.connect(self.__toggle_select_all_checkbox)
         #self.ui.search_btn.clicked.connect(self.search)
         if common.TEST:
-            self.__load_files(common.TEST_CURRENT_PATH)
+            self.__load_files(os.getenv('TEST_CURRENT_PATH'))
 
     @Slot(bool)
     def __toggle_files_selection(self, value:bool):

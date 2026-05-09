@@ -21,7 +21,7 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplicat
     QListView, QListWidget, QListWidgetItem, QMainWindow,
     QMenuBar, QPushButton, QScrollArea, QSizePolicy,
     QSpacerItem, QSplitter, QStatusBar, QTabWidget,
-    QToolButton, QVBoxLayout, QWidget)
+    QTextBrowser, QToolButton, QVBoxLayout, QWidget)
 import rc_resources
 
 class Ui_MainWindow(object):
@@ -256,7 +256,7 @@ class Ui_MainWindow(object):
         self.scrollAreaContent_2 = QWidget()
         self.scrollAreaContent_2.setObjectName(u"scrollAreaContent_2")
         self.scrollAreaContent_2.setEnabled(True)
-        self.scrollAreaContent_2.setGeometry(QRect(0, 0, 567, 733))
+        self.scrollAreaContent_2.setGeometry(QRect(0, 0, 599, 733))
         sizePolicy5 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         sizePolicy5.setHorizontalStretch(0)
         sizePolicy5.setVerticalStretch(0)
@@ -278,6 +278,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_17 = QVBoxLayout(self.metadata_content_2)
         self.verticalLayout_17.setSpacing(6)
         self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.groupBox_9 = QGroupBox(self.metadata_content_2)
+        self.groupBox_9.setObjectName(u"groupBox_9")
+        self.verticalLayout_19 = QVBoxLayout(self.groupBox_9)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.textBrowser = QTextBrowser(self.groupBox_9)
+        self.textBrowser.setObjectName(u"textBrowser")
+
+        self.verticalLayout_19.addWidget(self.textBrowser)
+
+
+        self.verticalLayout_17.addWidget(self.groupBox_9)
+
         self.groupBox_4 = QGroupBox(self.metadata_content_2)
         self.groupBox_4.setObjectName(u"groupBox_4")
         self.verticalLayout_12 = QVBoxLayout(self.groupBox_4)
@@ -305,56 +317,112 @@ class Ui_MainWindow(object):
 
         self.groupBox_3 = QGroupBox(self.metadata_content_2)
         self.groupBox_3.setObjectName(u"groupBox_3")
-        self.verticalLayout_4 = QVBoxLayout(self.groupBox_3)
+        self.verticalLayout_18 = QVBoxLayout(self.groupBox_3)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.groupBox_5 = QGroupBox(self.groupBox_3)
+        self.groupBox_5.setObjectName(u"groupBox_5")
+        self.verticalLayout_4 = QVBoxLayout(self.groupBox_5)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.detect_filesystem_group = QGroupBox(self.groupBox_3)
-        self.detect_filesystem_group.setObjectName(u"detect_filesystem_group")
-        self.detect_filesystem_group.setCheckable(False)
-        self.verticalLayout_10 = QVBoxLayout(self.detect_filesystem_group)
-        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.formLayout_7 = QFormLayout()
-        self.formLayout_7.setObjectName(u"formLayout_7")
-        self.label_26 = QLabel(self.detect_filesystem_group)
+        self.formLayout_3 = QFormLayout()
+        self.formLayout_3.setObjectName(u"formLayout_3")
+        self.label_9 = QLabel(self.groupBox_5)
+        self.label_9.setObjectName(u"label_9")
+
+        self.formLayout_3.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label_9)
+
+        self.comboBox = QComboBox(self.groupBox_5)
+        self.comboBox.addItem("")
+        self.comboBox.setObjectName(u"comboBox")
+
+        self.formLayout_3.setWidget(0, QFormLayout.ItemRole.FieldRole, self.comboBox)
+
+        self.label_26 = QLabel(self.groupBox_5)
         self.label_26.setObjectName(u"label_26")
 
-        self.formLayout_7.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label_26)
+        self.formLayout_3.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_26)
 
-        self.detect_title_combo = QComboBox(self.detect_filesystem_group)
+        self.detect_title_combo = QComboBox(self.groupBox_5)
         self.detect_title_combo.setObjectName(u"detect_title_combo")
         sizePolicy4.setHeightForWidth(self.detect_title_combo.sizePolicy().hasHeightForWidth())
         self.detect_title_combo.setSizePolicy(sizePolicy4)
 
-        self.formLayout_7.setWidget(0, QFormLayout.ItemRole.FieldRole, self.detect_title_combo)
+        self.formLayout_3.setWidget(1, QFormLayout.ItemRole.FieldRole, self.detect_title_combo)
 
-        self.label_25 = QLabel(self.detect_filesystem_group)
+
+        self.verticalLayout_4.addLayout(self.formLayout_3)
+
+
+        self.verticalLayout_18.addWidget(self.groupBox_5)
+
+        self.groupBox_6 = QGroupBox(self.groupBox_3)
+        self.groupBox_6.setObjectName(u"groupBox_6")
+        self.verticalLayout_15 = QVBoxLayout(self.groupBox_6)
+        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
+        self.formLayout_4 = QFormLayout()
+        self.formLayout_4.setObjectName(u"formLayout_4")
+        self.label_25 = QLabel(self.groupBox_6)
         self.label_25.setObjectName(u"label_25")
 
-        self.formLayout_7.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_25)
+        self.formLayout_4.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_25)
 
-        self.detect_artist_combo = QComboBox(self.detect_filesystem_group)
+        self.detect_artist_combo = QComboBox(self.groupBox_6)
         self.detect_artist_combo.setObjectName(u"detect_artist_combo")
         sizePolicy4.setHeightForWidth(self.detect_artist_combo.sizePolicy().hasHeightForWidth())
         self.detect_artist_combo.setSizePolicy(sizePolicy4)
 
-        self.formLayout_7.setWidget(1, QFormLayout.ItemRole.FieldRole, self.detect_artist_combo)
+        self.formLayout_4.setWidget(1, QFormLayout.ItemRole.FieldRole, self.detect_artist_combo)
 
-        self.label_24 = QLabel(self.detect_filesystem_group)
+        self.label_10 = QLabel(self.groupBox_6)
+        self.label_10.setObjectName(u"label_10")
+
+        self.formLayout_4.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label_10)
+
+        self.comboBox_2 = QComboBox(self.groupBox_6)
+        self.comboBox_2.addItem("")
+        self.comboBox_2.setObjectName(u"comboBox_2")
+
+        self.formLayout_4.setWidget(0, QFormLayout.ItemRole.FieldRole, self.comboBox_2)
+
+
+        self.verticalLayout_15.addLayout(self.formLayout_4)
+
+
+        self.verticalLayout_18.addWidget(self.groupBox_6)
+
+        self.groupBox_8 = QGroupBox(self.groupBox_3)
+        self.groupBox_8.setObjectName(u"groupBox_8")
+        self.verticalLayout_10 = QVBoxLayout(self.groupBox_8)
+        self.verticalLayout_10.setObjectName(u"verticalLayout_10")
+        self.formLayout_5 = QFormLayout()
+        self.formLayout_5.setObjectName(u"formLayout_5")
+        self.label_24 = QLabel(self.groupBox_8)
         self.label_24.setObjectName(u"label_24")
 
-        self.formLayout_7.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_24)
+        self.formLayout_5.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_24)
 
-        self.detect_album_combo = QComboBox(self.detect_filesystem_group)
+        self.detect_album_combo = QComboBox(self.groupBox_8)
         self.detect_album_combo.setObjectName(u"detect_album_combo")
         sizePolicy4.setHeightForWidth(self.detect_album_combo.sizePolicy().hasHeightForWidth())
         self.detect_album_combo.setSizePolicy(sizePolicy4)
 
-        self.formLayout_7.setWidget(2, QFormLayout.ItemRole.FieldRole, self.detect_album_combo)
+        self.formLayout_5.setWidget(1, QFormLayout.ItemRole.FieldRole, self.detect_album_combo)
+
+        self.label_11 = QLabel(self.groupBox_8)
+        self.label_11.setObjectName(u"label_11")
+
+        self.formLayout_5.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label_11)
+
+        self.comboBox_3 = QComboBox(self.groupBox_8)
+        self.comboBox_3.addItem("")
+        self.comboBox_3.setObjectName(u"comboBox_3")
+
+        self.formLayout_5.setWidget(0, QFormLayout.ItemRole.FieldRole, self.comboBox_3)
 
 
-        self.verticalLayout_10.addLayout(self.formLayout_7)
+        self.verticalLayout_10.addLayout(self.formLayout_5)
 
 
-        self.verticalLayout_4.addWidget(self.detect_filesystem_group)
+        self.verticalLayout_18.addWidget(self.groupBox_8)
 
 
         self.verticalLayout_17.addWidget(self.groupBox_3)
@@ -394,7 +462,7 @@ class Ui_MainWindow(object):
         self.scrollAreaContent = QWidget()
         self.scrollAreaContent.setObjectName(u"scrollAreaContent")
         self.scrollAreaContent.setEnabled(True)
-        self.scrollAreaContent.setGeometry(QRect(0, -142, 553, 831))
+        self.scrollAreaContent.setGeometry(QRect(0, 0, 585, 831))
         sizePolicy5.setHeightForWidth(self.scrollAreaContent.sizePolicy().hasHeightForWidth())
         self.scrollAreaContent.setSizePolicy(sizePolicy5)
         self.horizontalLayout_8 = QHBoxLayout(self.scrollAreaContent)
@@ -912,14 +980,11 @@ class Ui_MainWindow(object):
         QWidget.setTabOrder(self.tag_track_num, self.tag_track_total)
         QWidget.setTabOrder(self.tag_track_total, self.tag_disk_num)
         QWidget.setTabOrder(self.tag_disk_num, self.tag_disk_total)
-        QWidget.setTabOrder(self.tag_disk_total, self.detect_title_combo)
-        QWidget.setTabOrder(self.detect_title_combo, self.detect_artist_combo)
-        QWidget.setTabOrder(self.detect_artist_combo, self.detect_album_combo)
 
         self.retranslateUi(MainWindow)
 
         self.tabWidget_3.setCurrentIndex(1)
-        self.tabWidget_2.setCurrentIndex(1)
+        self.tabWidget_2.setCurrentIndex(0)
         self.dir_convention_combo.setCurrentIndex(1)
         self.tabWidget.setCurrentIndex(1)
 
@@ -948,17 +1013,47 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle("")
         self.select_all_check.setText(QCoreApplication.translate("MainWindow", u"Select all", None))
         self.files_selection_count.setText(QCoreApplication.translate("MainWindow", u"0 of 2 selected", None))
+        self.groupBox_9.setTitle(QCoreApplication.translate("MainWindow", u"Introduction", None))
+        self.textBrowser.setHtml(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Adwaita Sans'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">One thing that distinguishes Pyratag from other music taggers is the ability to detect most of the basic music tags offline using &quot;clever tricks&quot;. Pyratags' design is focused on simplicity and editing multiple songs at once to save time.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"
+                        "\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">In order to have benefits from automation and offline detection features, it is encouraged to store audio files in a structured form accross your music library.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">For example if you group music files in albums and then group albums by artists, like <span style=\" font-style:italic;\">&quot;Artist/Album/Song&quot;</span>, you can configure detection of artist and album. Several conventions are supported.</p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\"-qt-paragra"
+                        "ph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Feel free to change settings</p></body></html>", None))
         self.groupBox_4.setTitle(QCoreApplication.translate("MainWindow", u"General", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"Default Directory convention", None))
         self.dir_convention_combo.setItemText(0, QCoreApplication.translate("MainWindow", u"None", None))
         self.dir_convention_combo.setItemText(1, QCoreApplication.translate("MainWindow", u"Album/", None))
         self.dir_convention_combo.setItemText(2, QCoreApplication.translate("MainWindow", u"Artist/Album/", None))
 
-        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Detect button behavior", None))
-        self.detect_filesystem_group.setTitle(QCoreApplication.translate("MainWindow", u"set tag from filesystem", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Title (file)", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Artist (directory)", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Album (directory)", None))
+        self.groupBox_3.setTitle(QCoreApplication.translate("MainWindow", u"Detection", None))
+        self.groupBox_5.setTitle(QCoreApplication.translate("MainWindow", u"Title", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Source", None))
+        self.comboBox.setItemText(0, QCoreApplication.translate("MainWindow", u"File name", None))
+
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"Value Preview", None))
+        self.groupBox_6.setTitle(QCoreApplication.translate("MainWindow", u"Artist", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Value Preview", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Source", None))
+        self.comboBox_2.setItemText(0, QCoreApplication.translate("MainWindow", u"Directory name", None))
+
+        self.groupBox_8.setTitle(QCoreApplication.translate("MainWindow", u"Album", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"Value Preview", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Source", None))
+        self.comboBox_3.setItemText(0, QCoreApplication.translate("MainWindow", u"Directory name", None))
+
         self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.tab_2), "")
 #if QT_CONFIG(tooltip)
         self.tabWidget_2.setTabToolTip(self.tabWidget_2.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Detection Settings", None))

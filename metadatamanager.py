@@ -6,7 +6,7 @@ from PySide6.QtCore import Slot
 from PySide6.QtGui import QIcon
 from PySide6.QtWidgets import QMainWindow
 from PySide6.QtWidgets import QMessageBox
-from PySide6.QtWidgets import QComboBox, QListWidget
+from PySide6.QtWidgets import QComboBox, QListWidget, QLineEdit
 import common
 from audiotags import AUDIO_TAGS_MAP, AudioTags
 

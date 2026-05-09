@@ -1,13 +1,14 @@
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from PySide6.QtCore import QObject, QEvent
 from PySide6.QtWidgets import QWidget, QLineEdit
 from PySide6.QtGui import QPixmap
-from ui_form import Ui_MainWindow
+#from ui_form import Ui_MainWindow
 
 TEST = True
 
-TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Music/Artists/Depeche Mode/Black Celebration'
-#'/home/cyb3rr4bb1t/Music/Artists/Dream Thing/Satisfactory Soundtrack'
-#TEST_CURRENT_PATH = '/home/cyb3rr4bb1t/Projects/qt/stealify/test'
 AUDIO_EXT = ('.mp3', '.flac', '.wav', '.ogg', '.m4a')
 
 class OnClickHandler(QObject):
@@ -49,6 +50,8 @@ def updateCoverSide(cover_widget, value:bytes):
         cover_widget.setPixmap(defaultCoverPixmap())
 
 def clear_tag_edit(line_edit:QLineEdit):
+    line_edit.setStyleSheet("")
+    line_edit.setReadOnly(False)
     for action in line_edit.actions():
         line_edit.removeAction(action)
     line_edit.setText('')
